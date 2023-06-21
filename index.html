@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator-2</title>
+    <link rel="stylesheet" href="style-index.css">
+</head>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <div>
+        <p class="js-display display"></p>
+      </div>
+        <div>
+          <button onclick="
+            easyCalculationWay('1');
+            displayCalculation();
+            ">1</button>
+        
+            <button onclick="
+                easyCalculationWay('2')  
+                displayCalculation();
+            ">2</button>
+        
+            <button onclick="
+                easyCalculationWay('3')
+                displayCalculation();
+            ">3</button>
+        
+            <button onclick="
+                easyCalculationWay('4')
+                displayCalculation();
+            ">4</button>
+          </div>
+
+          <div>
+            <button onclick="
+                easyCalculationWay('5')
+                displayCalculation();
+            ">5</button>
+        
+            <button onclick="
+                easyCalculationWay('6')
+                displayCalculation();
+            ">6</button>
+        
+            <button onclick="
+                easyCalculationWay('7')
+                displayCalculation();
+            ">7</button>
+        
+            <button onclick="
+                easyCalculationWay('8')
+                displayCalculation();
+            ">8</button>
+          </div>
+    
+          <div>
+            <button onclick="
+                easyCalculationWay('9')
+                displayCalculation();
+            ">9</button>
+
+            <button onclick="
+                easyCalculationWay('0')
+                displayCalculation();
+            ">0</button>
+
+            <button onclick="
+                easyCalculationWay('00')
+                displayCalculation();
+            ">00</button>
+  
+            <button onclick="
+                easyCalculationWay('.')
+                displayCalculation();
+            " class="dot">.</button>
+          </div>
+
+          <div>
+            <button onclick="
+                easyCalculationWay('*')
+                displayCalculation();
+            " class="multiply">*</button>
+        
+            <button onclick="
+                easyCalculationWay('-')
+                displayCalculation();
+            " class="minus">-</button>
+        
+            <button onclick="
+                easyCalculationWay('/')
+                displayCalculation();
+            " class="divide">/</button>
+
+            <button onclick="
+                easyCalculationWay('+')
+                displayCalculation();
+            " class="plus">+</button>
+          </div>
+
+          <div>
+            <button onclick="
+                calculation = eval(calculation);
+                displayCalculation();
+                localStorage.setItem('calculation',calculation)
+            " class="equal">=</button>
+            
+            <button onclick="
+                calculation = display.value.toString().slice(0,-1)
+                localStorage.removeItem('calculation', calculation)
+            " class="del">DEL</button>
+        
+            <button onclick="
+                calculation = '';
+                displayCalculation();
+                localStorage.setItem('calculation',calculation)
+            " class="clear">CLEAR</button>
+          </div>
+        </div>
+    </div>
+    <script>
+        let calculation = localStorage.getItem('calculation') || '';
+
+        function easyCalculationWay(value) {
+          calculation += value;
+          localStorage.setItem('calculation',calculation)
+        }
+
+        function displayCalculation() {
+            document.querySelector('.js-display')
+                .innerHTML = calculation
+        }
+        //GOOD JOB TUNDE
+    </script>
+</body>
+</html>
